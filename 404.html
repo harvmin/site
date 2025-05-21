@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 Not Found - Tema Education</title>
+<style>
+  /* Reset dan gaya dasar */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #333;
+    overflow: hidden;
+  }
+
+  .container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+
+  p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #34495e;
+  }
+
+  /* Animasi buku */
+  .book {
+    position: relative;
+    width: 60px;
+    height: 80px;
+    margin: 0 auto 30px;
+    cursor: pointer;
+    transform-origin: bottom center;
+    animation: bounce 2s infinite;
+  }
+
+  .book-front, .book-back {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    border: 2px solid #34495e;
+    border-radius: 4px;
+    background-color: #ffeaa7;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    backface-visibility: hidden;
+  }
+
+  /* Cover of the book */
+  .book-front {
+    z-index: 2;
+  }
+
+  /* Back of the book, can be a different color or design */
+  .book-back {
+    transform: rotateY(180deg);
+  }
+
+  /* Optional: Animate the book flipping on click */
+  .book.flipped {
+    animation: flip 1s forwards;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @keyframes flip {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(180deg); }
+  }
+
+  /* Educational elements: pencil and ruler */
+  .tool {
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background-color: #f39c12;
+    top: -10px;
+    left: 5px;
+    border-radius: 2px;
+    transform-origin: left center;
+  }
+
+  /* Pencil tip */
+  .pencil {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #d35400;
+    clip-path: polygon(0 0, 10 5, 0 10);
+  }
+
+  /* Ruler */
+  .ruler {
+    position: absolute;
+    bottom: -10px;
+    right: -5px;
+    width: 30px;
+    height: 4px;
+    background-color: #27ae60;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="book" id="book">
+    <div class="book-front">
+      <div class="tool" id="pencil">
+        <div class="pencil"></div>
+      </div>
+      <div class="ruler"></div>
+    </div>
+    <div class="book-back"></div>
+  </div>
+  <h1>404</h1>
+  <p>Halaman Tidak Ditemukan</p>
+</div>
+
+<script>
+  // JavaScript untuk animasi interaktif
+  const book = document.getElementById('book');
+
+  book.addEventListener('click', () => {
+    // Toggle flip animation
+    if(!book.classList.contains('flipped')){
+      book.classList.add('flipped');
+      // Setelah selesai flip, kembali ke posisi semula
+      setTimeout(() => {
+        book.classList.remove('flipped');
+      }, 1000);
+    }
+  });
+
+  // Animasi otomatis bounce sudah berjalan dengan CSS
+</script>
+</body>
+</html>
